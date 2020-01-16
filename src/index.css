@@ -5,6 +5,7 @@ body {
 .error {
   color: red;
   margin: 0 0 5px;
+  font-size: 12px;
 }
 
 form {
@@ -22,4 +23,8 @@ button {
 
 .mb-10 {
   margin-bottom: 10px;
+}
+
+pre {
+  margin: 10px;
 }
