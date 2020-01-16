@@ -164,7 +164,7 @@ const Form = () => {
           setError={handleError}
           optional
         />
-        <div>
+        <div className='mb-10'>
           <input
             type='checkbox'
             checked={hasEducationalData}
