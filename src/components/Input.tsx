@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface InputProps {
   name: string;
@@ -15,21 +15,21 @@ const Input = ({
   error,
   name,
   placeholder,
-  setError
+  setError,
 }: InputProps) => {
   return (
     <>
       <input
-        type="text"
+        type='text'
         value={value}
-        onChange={e => {
-          setError(name, "");
+        onChange={(e) => {
+          setError(name, '');
           handleChange(name, e.target.value);
         }}
-        autoComplete="none"
+        autoComplete='none'
         placeholder={placeholder}
       />
-      <p className="error">{error ? error : null}</p>
+      <p className='error'>{error ? error : null}</p>
     </>
   );
 };
