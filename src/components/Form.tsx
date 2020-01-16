@@ -22,6 +22,8 @@ const Form = () => {
     occupation: '',
   });
 
+  const [apiRequest, setApiRequest] = useState(null);
+
   const handleChange = (name: string, value: string) => {
     setDetails({
       ...details,
@@ -42,9 +44,11 @@ const Form = () => {
     const request = generateAPIRequest({ ...details });
     const isValid = validateData(request);
 
+    let newApiRequest: any = null;
     if (isValid) {
-      console.log(request, 'details');
+      newApiRequest = request;
     }
+    setApiRequest(newApiRequest);
   };
 
   const validateData = (details: FormDetails) => {
@@ -79,41 +83,46 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Input
-        name='name'
-        value={details.name}
-        handleChange={handleChange}
-        error={error.name}
-        placeholder='Full Name'
-        setError={handleError}
-      />
-      <Input
-        name='mobile'
-        value={details.mobile}
-        handleChange={handleChange}
-        error={error.mobile}
-        placeholder='Mobile Number'
-        setError={handleError}
-      />
-      <Input
-        name='email'
-        value={details.email}
-        handleChange={handleChange}
-        error={error.email}
-        placeholder='Email'
-        setError={handleError}
-      />
-      <Input
-        name='occupation'
-        value={details.occupation}
-        handleChange={handleChange}
-        error={error.occupation}
-        placeholder='Occupation'
-        setError={handleError}
-      />
-      <button>Submit</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <Input
+          name='name'
+          value={details.name}
+          handleChange={handleChange}
+          error={error.name}
+          placeholder='Full Name'
+          setError={handleError}
+        />
+        <Input
+          name='mobile'
+          value={details.mobile}
+          handleChange={handleChange}
+          error={error.mobile}
+          placeholder='Mobile Number'
+          setError={handleError}
+        />
+        <Input
+          name='email'
+          value={details.email}
+          handleChange={handleChange}
+          error={error.email}
+          placeholder='Email'
+          setError={handleError}
+        />
+        <Input
+          name='occupation'
+          value={details.occupation}
+          handleChange={handleChange}
+          error={error.occupation}
+          placeholder='Occupation'
+          setError={handleError}
+        />
+        <button>Submit</button>
+      </form>
+      <pre>
+        <code>{JSON.stringify(apiRequest, null, 2)}</code>
+      </pre>
+    </>
   );
 };
 
